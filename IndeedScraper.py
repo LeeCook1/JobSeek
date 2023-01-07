@@ -90,7 +90,7 @@ class IndeedScraper:
     def get_job_id(job_element):
         for class_name in job_element.attrs['class']:
             if 'job_' in class_name:
-                return class_name.replace("job_",'') 
+                return class_name.replace("job",'indeed') 
         return
 
 if __name__ == '__main__':
