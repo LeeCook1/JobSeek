@@ -17,17 +17,21 @@ class Job(SQLModel, table=True):
     scrape_id: Optional[int] = Field(default=None, foreign_key="scrape.id")
     job_site_id: str
     title: str
-    description: str
+    job_snippet: Optional[str] = None
+    description: Optional[str] = None
+    company: Optional[str] = None
     location: Optional[str] = None
     salary: Optional[str] = None
     remote: Optional[bool] = False
-    match: float = -1.0
+    match: Optional[float] = -1.0
     url: str 
     apply_url: str
     site: str    
     provider: str
     viewed: bool = False
     applied: bool = False
+    easy_apply: bool = False
+    misc_data: Optional[str]
 
     user_links: List[UserJobLink] = Relationship(back_populates="job")
 
